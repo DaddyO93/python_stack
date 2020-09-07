@@ -1,6 +1,3 @@
-# import store_and_products.inventory as inventory
-
-
 class Products:
     def __init__(self, product_info):
         self.category = product_info.get("category")
@@ -28,4 +25,3 @@ class Products:
         print(f"Product Price: ${self.price}")
         print("\n","*"*50, "\n")
         return self
-
