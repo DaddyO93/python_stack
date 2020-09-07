@@ -1,16 +1,20 @@
 from products import Products
+from store import Store
 
-apple = Products({"name":"apple", "category":"fruit", "price":.5})
-orange = Products({"name":"orange", "category":"fruit", "price":.8})
-banana = Products({"name":"banana", "category":"fruit", "price":.6})
+apple = Products({"category":"fruit", "name":"apple", "price":.5})
+orange = Products({"category":"fruit", "name":"orange", "price":.8})
+banana = Products({"category":"fruit", "name":"banana", "price":.6})
 
-carrot = Products({"name":"carrot", "category":"vegetable", "price":1})
-potato = Products({"name":"potato", "category":"vegetable", "price":2})
-onion = Products({"name":"onion", "category":"vegetable", "price":1.5})
+carrot = Products({"category":"vegetable", "name":"carrot", "price":1})
+potato = Products({"category":"vegetable", "name":"potato", "price":2})
+onion = Products({"category":"vegetable", "name":"onion", "price":1.5})
 
-hat = Products({"name":"hat", "category":"clothing", "price":10})
-boots = Products({"name":"boots", "category":"clothing", "price":20})
-gloves = Products({"name":"gloves", "category":"clothing", "price":6})
+hat = Products({"category":"clothing", "name":"hat", "price":10})
+boots = Products({"category":"clothing", "name":"boots", "price":20})
+gloves = Products({"category":"clothing", "name":"gloves", "price":6})
 
+store_1 = Store("Bob's Store")
+store_2 = Store("Bill's Store")
 
-hat.print_info().update_price(.2, True).print_info()
+store_1.add_product(apple).add_product(carrot).add_product(gloves).add_product(onion).list_of_inventory()
+store_1.sell_product(3).list_of_inventory().inflation(.2).list_of_inventory().set_clearance("clothing", .1).list_of_inventory()
