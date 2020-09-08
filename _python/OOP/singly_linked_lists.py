@@ -83,6 +83,8 @@ class SList:
                     counter += 1
                     temp = runner
                     runner = runner.next
+                if runner.next == None:
+                    runner.next = new_node
                 temp.next = new_node
                 new_node.next = runner
         
