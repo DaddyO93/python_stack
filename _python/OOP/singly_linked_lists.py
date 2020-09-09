@@ -65,7 +65,7 @@ class SList:
                 self.remove_from_front()
             else:
                 runner = self.head
-                while (runner.value != val & runner.next != None):
+                while (runner.value != val and runner.next != None):
                     temp = runner
                     runner = runner.next
                 temp.next = runner.next
@@ -79,7 +79,7 @@ class SList:
                 new_node =- SLNode(val)
                 runner = self.head
                 counter = 0
-                while (runner != None & counter != n):
+                while (runner != None and counter != n):
                     counter += 1
                     temp = runner
                     runner = runner.next
@@ -87,9 +87,10 @@ class SList:
                     runner.next = new_node
                 temp.next = new_node
                 new_node.next = runner
+        return self
         
     
 
 
 my_list = SList()
-my_list.add_to_front("are").add_to_front("Linked lists").add_to_back("fun!").print_values()
+my_list.add_to_front("are").add_to_front("Linked lists").add_to_back("fun!").print_values().remove_val("are").print_values()
