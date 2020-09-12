@@ -1,1 +1,3 @@
 my_environments/
+__pycache__/
+settings.py
