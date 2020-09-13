@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey App</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <form id="app_form" action="/other_page" method="POST">
+            {% csrf_token %}
+            <p>Name: <input type="text" name="name"></p>
+
+            <p>Dojo Location: <select for="location" name="location">
+                <option value="Berkeley">Berkeley</option>
+                <option value="Boise">Boise</option>
+                <option value="Chicago">Chicago</option>
+                <option value="Dallas">Dallas</option>
+                <option value="Los_Angeles">Los Angeles</option>
+                <option value="Orange_County">Orange County</option>
+                <option value="San_Jose">San Jose</option>
+                <option value="Seattle">Seattle</option>
+                <option value="Tulsa">Tulsa</option>
+                <option value="Tysons_Corner">Tysons Corner</option>
+                <option value="Online">Online</option>
+            </select></p>
+
+            <p>Favorite Language: <select for="language" name="language">
+                <option value="JAVA">JAVA</option>
+                <option value="PYTHON">PYTHON</option>
+                <option value="C#/.NET">C#/.NET</option>
+                <option value="MEAN">MEAN</option>
+                <option value="RUBY">RUBY</option>
+            </select></p>
+
+            <p>Comment (optional):</p>
+            <textarea name="comment" name="comment" rows="5"></textarea>
+
+            <button type="submit" form="app_form">Submit</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

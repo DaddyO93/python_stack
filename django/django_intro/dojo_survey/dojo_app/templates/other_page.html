@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other Page Dojo Survey App</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div id="wrapper">
+        <p>Name: {{ name }}</p>
+        <p>Location: {{ location }}</p>
+        <p>Language: {{ language }}</p>
+        <p>Comment:</p>
+        <p>{{ comment }}</p>
+        <form action="/" id="return">
+            <button formmethod="GET" form="return">Back</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

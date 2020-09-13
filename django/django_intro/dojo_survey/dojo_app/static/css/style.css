@@ -1,0 +1,22 @@
+#wrapper {
+    width: 400px;
+    height: 300px;
+    background-color: dimgrey;
+    margin: 20px auto;
+    padding: 2%;
+    border: 1px solid black;
+    color: aliceblue;
+}
+
+.lbl .item {
+    display: inline-block;
+}
+
+button {
+    display: block;
+    margin-left: 85%;
+}
+
+textarea {
+    width: 100%;
+}
