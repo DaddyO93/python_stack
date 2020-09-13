@@ -1,0 +1,20 @@
+h3,
+#date_and_time {
+    background-color: aliceblue;
+    color: rgb(26, 25, 25);
+    padding: 10px;
+    text-align: center;
+    border: 1px solid rgb(24, 24, 24);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h3 {
+    width: 250px;
+    height: 50px;
+}
+
+#date_and_time {
+    width: 600px;
+    height: 150px;
+}
