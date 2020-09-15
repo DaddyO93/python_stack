@@ -5,14 +5,11 @@ def index (request):
     if request.method =="GET":
         return render(request, "index.html")
     if request.method == "POST":
+        request.session['name'] = request.POST['name']
+        request.session['location'] = request.POST['location']
+        request.session['language'] = request.POST['language']
+        request.session['comment'] = request.POST['comment']
         return redirect('/other_page')
 
 def other_page (request):
-    if request.method == "POST":
-        context = {
-            "name": request.POST['name'],
-            "location": request.POST['location'],
-            "language": request.POST['language'],
-            "comment": request.POST['comment']
-    }
-    return render(request, "other_page.html", context)
+    return render(request, "other_page.html")

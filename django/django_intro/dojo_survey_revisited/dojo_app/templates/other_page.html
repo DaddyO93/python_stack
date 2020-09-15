@@ -31,16 +31,16 @@
 
             <ul class="right">
                 <li>
-                    <p>{{ name }}</p>
+                    <p>{{ request.session.name }}</p>
                 </li>
                 <li>
-                    <p>{{ location }}</p>
+                    <p>{{ request.session.location }}</p>
                 </li>
                 <li>
-                    <p>{{ language }}</p>
+                    <p>{{ request.session.language }}</p>
                 </li>
                 <li>
-                    <p id="comment">{{ comment }}</p>
+                    <p id="comment">{{ request.session.comment }}</p>
                 </li>
             </ul>
         </div>
