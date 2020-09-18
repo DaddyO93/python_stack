@@ -1,0 +1,20 @@
+h3 {
+    text-align: center;
+}
+
+h1 {
+    border: 1px solid black;
+    width: 300px;
+    margin: 10px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+button {
+    margin: 10px;
+    background-color: aquamarine;
+}
+
+#wrapper {
+    text-align: center;
+}

@@ -12,4 +12,4 @@ def index (request):
         return redirect('/other_page')
 
 def other_page (request):
-    return render(request, "other_page.html")
+    return render(request, "other_page.html") 
