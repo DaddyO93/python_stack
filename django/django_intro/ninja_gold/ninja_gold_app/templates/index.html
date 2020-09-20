@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Gold App</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div id="wrapper">
+        <a href="/destroy"> Play Again! </a>
+
+        <p class="title">Your Gold:
+            <p class="display_gold">{{ request.session.gold }}</p>
+        </p>
+
+        <div id="activity_area">
+            <form class="activity_area" action="/process_money" method="POST">
+                {% csrf_token %}
+                <h2>Farm</h2>
+                <p>(earns 10-20 gold)</p>
+                <input type="hidden" name="location" value="farm">
+                <button>Earn</button>
+            </form>
+            <form class="activity_area" action="/process_money" method="POST">
+                {% csrf_token %}
+                <h2>Cave</h2>
+                <p>(finds 5-10 gold)</p>
+                <input type="hidden" name="location" value="cave">
+                <button>Search</button>
+            </form>
+            <form class="activity_area" action="/process_money" method="POST">
+                {% csrf_token %}
+                <h2>House</h2>
+                <p>(finds 2-5 gold)</p>
+                <input type="hidden" name="location" value="house">
+                <button>Look</button>
+            </form>
+            <form class="activity_area" action="/process_money" method="POST">
+                {% csrf_token %}
+                <h2>Casino</h2>
+                <p>(bet up to 50 gold)</p>
+                <p>Bet amount (min = 1): <input type="bet_amount" name="bet_amount" id="bet_amount" value="1"></p>
+                <input type="hidden" name="location" value="casino">
+                <button>Gamble</button>
+            </form>
+        </div>
+        <p class="title">Activity Log:</p>
+        <div id="activity_log">
+            {% for activity in request.session.activities reversed %}
+            <p class="{{activity.result}}">{{activity.message}}</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>

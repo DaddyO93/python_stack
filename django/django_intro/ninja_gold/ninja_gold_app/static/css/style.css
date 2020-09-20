@@ -1,0 +1,68 @@
+#wrapper {
+    margin: 20px;
+    width: 970px;
+}
+
+a {
+    display: block;
+    margin: 0px 20px;
+}
+
+.title {
+    display: inline-block;
+    margin: 0px 20px;
+}
+
+.display_gold {
+    display: inline-block;
+    border: 2px solid black;
+    width: 100px;
+    padding: 5px;
+    vertical-align: middle;
+}
+
+#activity_area {
+    display: block;
+    margin-top: 10px;
+}
+
+.activity_area {
+    display: inline-block;
+    border: 2px solid black;
+    padding: 10px;
+    margin: 5px 10px;
+    text-align: center;
+    height: 200px;
+    width: 219px;
+    vertical-align: top;
+}
+
+p {
+    margin-bottom: 5px;
+}
+
+#activity_log {
+    display: block;
+    width: 950px;
+    height: 200px;
+    border: 2px solid black;
+    margin: 0px 10px;
+    padding: 10px;
+    overflow: auto;
+}
+
+earn {
+    color: green;
+}
+
+found {
+    color: orange;
+}
+
+won {
+    color: blue;
+}
+
+lost {
+    color: red;
+}
