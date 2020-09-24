@@ -1,0 +1,80 @@
+h1 {
+    text-align: center;
+    margin: 0px auto;
+}
+
+table {
+    margin: 0px auto;
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.id_age {
+    width: 20px;
+}
+
+#name {
+    width: 200px;
+}
+
+#email {
+    width: 250px;
+}
+
+tr {
+    text-align: left;
+}
+
+.header {
+    background-color: rgb(99, 98, 98);
+}
+
+.data_row:nth-child(odd) {
+    background-color: rgb(209, 205, 205);
+}
+
+.data_row:nth-child(even) {
+    background-color: rgb(138, 139, 139);
+}
+
+#line {
+    border: 1px solid black;
+    height: 0px;
+    width: 100%;
+}
+
+form {
+    text-align: center;
+}
+
+ul {
+    display: inline-block;
+    padding-left: 0px;
+}
+
+ul:nth-child(3) {
+    margin-right: 20px;
+}
+
+li {
+    list-style-type: none;
+    text-align: left;
+    padding-top: 10px;
+    vertical-align: middle;
+}
+
+input {
+    width: 150px;
+    padding: 5px;
+}
+
+button {
+    margin: 10px auto;
+    display: block;
+}
