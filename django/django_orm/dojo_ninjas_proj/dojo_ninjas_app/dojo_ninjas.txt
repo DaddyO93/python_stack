@@ -1,0 +1,48 @@
+>python manage.py shell
+>>> from dojo_ninjas_app import *
+>>> Dojo.objects.create(name="Arlington", city="Arlington", state="VA"
+... )
+
+>>> from dojo_ninjas_app.models import *
+>>> Dojo.objects.create(name="Arlington", city="Arlington", state="VA")
+>>> Dojo.objects.create(name="Bellvue", city="Bellvue", state="WA")
+>>> Dojo.objects.create(name="Boise", city="Boise", state="ID")
+>>> dojo_to_delete = Dojo.objects.get(id=1)
+>>> dojo_to_delete.delete()        
+>>> dojo_to_delete = Dojo.objects.get(id=2)
+>>> dojo_to_delete.delete()
+>>> dojo_to_delete = Dojo.objects.get(id=3)
+>>> dojo_to_delete.delete()
+
+had to delete migrate files due to error adding field
+started over
+
+>>> Dojo.objects.create(name="Chicago", city="Chicago", state="IL")
+>>> Dojo.objects.create(name="Dallas", city="Dallas", state="TX")
+>>> Dojo.objects.create(name="LA", city="Burbank", state="CA") 
+>>> la_dojo = Dojo.objects.get(id=1)  
+>>> Ninja.objects.create(first_name="Bob", last_name="Bobbet", dojo=la_dojo) 
+>>> Ninja.objects.create(first_name="Bill", last_name="Billy", dojo=la_dojo)  
+>>> Ninja.objects.create(first_name="Bud", last_name="Buddy", dojo=la_dojo) 
+>>> tx_dojo = Dojo.objects.get(id=2)
+>>> Ninja.objects.create(first_name="Mop", last_name="Moppet", dojo=tx_dojo) 
+>>> Ninja.objects.create(first_name="Mill", last_name="Milly", dojo=tx_dojo) 
+>>> Ninja.objects.create(first_name="Mud", last_name="Muddy", dojo=tx_dojo)  
+>>> ca_dojo = Dojo.objects.get(id=3)
+>>> Ninja.objects.create(first_name="Murk", last_name="Murky", dojo=CA_dojo) 
+>>> Ninja.objects.create(first_name="Mulk", last_name="Mulky", dojo=ca_dojo) 
+>>> Ninja.objects.create(first_name="Mulb", last_name="Mulby", dojo=ca_dojo) 
+>>> dojo_1 = Ninja.objects.filter(dojo=la_dojo)
+>>> for ninja in dojo_1:
+...     print(ninja.first_name)
+... 
+>>> dojo_3 = Ninja.objects.filter(dojo=ca_dojo)
+>>> for ninja in dojo_3:
+...     print(ninja.first_name)
+... 
+>>> last_ninjas_dojo = Ninja.objects.last()
+>>> print(last_ninjas_dojo.dojo.name)
+>python manage.py makemigrations dojo_ninjas_app
+>python manage.py migrate
+>>> from dojo_ninjas_app import *   
+>>> Dojo.objects.create(name="Here", city="Somewhere", state="NO", desc="You can't find it")

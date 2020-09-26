@@ -1,0 +1,63 @@
+#upper {
+    text-align: center;
+}
+
+.column {
+    display: inline-block;
+    width: 300px;
+}
+
+h1 {
+    text-align: center;
+    margin: 0px;
+}
+
+.labels,
+.input,
+.options,
+form {
+    list-style: none;
+    display: inline-block;
+    vertical-align: top;
+    margin: 5px 0px;
+    text-align: left;
+    padding: 0px;
+}
+
+.labels {
+    width: 80px;
+    padding: 2px;
+}
+
+li {
+    padding: 2px;
+}
+
+button {
+    text-align: center;
+}
+
+#lower {
+    margin: 0px auto;
+    width: 300px;
+    height: 400px;
+    overflow: auto;
+}
+
+#display_dojo {
+    list-style: none;
+    font-weight: bold;
+    text-align: left;
+}
+
+#display_ninja {
+    font-style: italic;
+    margin: 0px 40px;
+    text-align: left;
+}
+
+p {
+    height: 0px;
+    width: 100%;
+    border: 1px solid black;
+}
