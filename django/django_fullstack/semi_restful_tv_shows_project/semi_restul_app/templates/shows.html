@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semi-Restful TV Shows App - Shows</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div class="smaller_wrapper">
+        <div class="top">
+            <a class="go_back" href="/">Go Back</a>
+            <h1>TV Show {{show.id}}</h1>
+            <ul>
+                <li>Title: {{show.title}}</li>
+                <li>Network: {{show.network}}</li>
+                <li>Release Date: {{show.release_date}}</li>
+                <li class="scroll_area">Description: {{show.desc}}</li>
+            </ul>
+        </div>
+        <p>Last Updated: {{show.updated_at}}</p>
+        <a href="/shows/{{show.id}}/edit" class="form">Edit</a> |
+        <form action="/shows/{{show.id}}/destroy" method="POST" name="{{show.id}}" class="form">
+            {% csrf_token %}
+            <button type="submit" class="form">Delete</button>
+        </form>
+    </div>
+</body>
+
+</html>

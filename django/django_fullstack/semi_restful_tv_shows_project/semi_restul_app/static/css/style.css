@@ -1,0 +1,99 @@
+.wrapper {
+    width: 700px;
+    margin: 10px auto;
+}
+
+.smaller_wrapper {
+    width: 350px;
+    margin: 10px auto;
+}
+
+.go_back {
+    margin-left: 80%;
+}
+
+#main_table {
+    border: 2px solid black;
+    border-collapse: collapse;
+    margin: auto;
+    width: 100%;
+    table-layout: auto;
+}
+
+h1,
+.center {
+    text-align: center;
+    margin-top: 10px;
+}
+
+th,
+td {
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.form {
+    border: none;
+    background-color: transparent;
+    display: inline-block;
+    text-decoration: underline;
+    font-size: 1em;
+    color: rgb(63, 84, 202);
+    vertical-align: top;
+    padding: 0px;
+    text-align: center;
+}
+
+.header {
+    background-color: rgb(129, 129, 129);
+}
+
+.data_row:nth-child(odd) {
+    background-color: rgb(221, 219, 219);
+}
+
+.data_row:nth-child(even) {
+    background-color: rgb(174, 175, 175);
+}
+
+li {
+    list-style: none;
+    padding: 5px 0px;
+}
+
+ul {
+    padding: 0px;
+}
+
+#top {
+    height: 250px;
+}
+
+.scroll_area {
+    overflow: auto;
+}
+
+p {
+    margin-bottom: 5px;
+}
+
+.display_area {
+    margin: auto;
+    width: 100%;
+}
+
+.one_column {
+    display: block;
+    width: 100%;
+}
+
+.two_column_area {
+    column-count: 2;
+    width: 100%;
+    column-gap: unset;
+}
+
+.two_column_area p,
+input {
+    display: inline-block;
+}

@@ -1,0 +1,84 @@
+>python manage.py shell
+>>> from books_authors_app.models import *
+>>> c_sharp = Book.objects.create(title="C Sharp", desc = "Language often used for games")
+>>> java = Book.objects.create(title="Java", desc = "Language often used in mobile apps")
+>>> python = Book.objects.create(title="Python", desc = "My favorite language")
+>>> php = Book.objects.create(title = "PHP", desc = "I know nothing of PHP") 
+>>> ruby = Book.objects.create(title = "Ruby", desc = "I think I need to learn this one")
+>>> jane_austin = Author.objects.create(first_name = "Jane", last_name = "Austin") 
+>>> emily_dickinson = Author.objects.create(first_name = "Emily", last_name = "Dickinson") 
+>>> fyodor_dostoevksy = Author.objects.create(first_name = "Fyodor", last_name = "Dostoevksy")
+>>> william_shakespeare = Author.objects.create(first_name = "William", last_name = "Shakespeare")
+>>> lau_tzu = Author.objects.create(first_name = "Lau", last_name = "Tzu")
+>>> ^Z
+>python manage.py makemigrations
+Select an option: 1
+>>> " "
+>python manage.py migrate
+>python manage.py shell
+>>> from books_authors_app.models import *
+>>> book_to_update = Book.objects.get(title = "C Sharp")
+>>> book_to_update.title = "C#"
+>>> book_to_update.save()
+>>> author_to_update = Author.objects.get(id=4)
+>>> author_to_update.first_name = "Bill"
+>>> author_to_update.save()
+>>> author_to_link = Author.objects.get(id=1)
+>>> book_to_link = Book.objects.get(id=1)
+>>> author_to_link.books.add(book_to_link)
+>>> book_to_link = Book.objects.get(id=2)
+>>> author_to_link.books.add(book_to_link)
+>>> author_to_link = Author.objects.get(id=2)
+>>> book_to_link = Book.objects.get(id=1)
+>>> author_to_link.books.add(book_to_link)
+>>> book_to_link = Book.objects.get(id=2)
+>>> author_to_link.books.add(book_to_link)
+>>> book_to_link = Book.objects.get(id=3)
+>>> author_to_link.books.add(book_to_link)
+>>> author_to_link = Author.objects.get(id=3)
+>>> book_to_link = Book.objects.get(id=1)
+>>> author_to_link.books.add(book_to_link)
+>>> book_to_link = Book.objects.get(id=2)
+>>> author_to_link.books.add(book_to_link)
+>>> book_to_link = Book.objects.get(id=3)
+>>> author_to_link.books.add(book_to_link)
+>>> book_to_link = Book.objects.get(id=4)
+>>> author_to_link.books.add(book_to_link)
+>>> author_to_link = Author.objects.get(id=4)
+>>> book_to_link = Book.objects.get(id=1)
+>>> author_to_link.books.add(book_to_link)
+>>> book_to_link = Book.objects.get(id=2)
+>>> author_to_link.books.add(book_to_link)
+>>> book_to_link = Book.objects.get(id=3)
+>>> author_to_link.books.add(book_to_link)
+>>> book_to_link = Book.objects.get(id=4)
+>>> author_to_link.books.add(book_to_link)
+>>> book_to_link = Book.objects.get(id=5)
+>>> author_to_link.books.add(book_to_link)
+>>> book_to_query = Book.objects.get(id=3)
+>>> for name in book_to_query.authors.all():
+...     print(name.first_name)
+... 
+Emily
+Fyodor
+Bill
+>>> author_to_remove = Author.objects.get(first_name = "Emily")
+>>> book_to_query.authors.remove(author_to_remove)
+>>> author_to_link = Author.objects.get(id=5)
+>>> book_to_link = Book.objects.get(id=5)
+>>> author_to_link.books.add(book_to_link)
+>>> for book in author_to_query.books.all():
+...     print(book.title)
+... 
+C#
+Java
+Python
+PHP
+>>>
+>>> book_to_query = Book.objects.get(id=5)
+>>> for author in book_to_query.authors.all():
+...     print(author.first_name)
+... 
+Bill
+Lau
+>>>

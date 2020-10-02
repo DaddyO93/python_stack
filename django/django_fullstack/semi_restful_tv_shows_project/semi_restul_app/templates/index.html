@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semi-Restful TV Shows App</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="top">
+            <h1>All Shows</h1>
+            <table id="main_table">
+                <tr class="header">
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Network</th>
+                    <th>Release Date</th>
+                    <th>Actions</th>
+                </tr>
+                {% for show in all_shows %}
+                <tr class="data_row">
+                    <td>{{show.id}}</td>
+                    <td>{{show.title}}</td>
+                    <td>{{show.network}}</td>
+                    <td>{{show.release_date}}</td>
+                    <td>
+                        <a href="/shows/{{show.id}}" class="form">View</a> |
+                        <a href="/shows/{{show.id}}/edit" class="form">Edit</a> |
+                        <form action="/shows/{{show.id}}/destroy" name={{show.id}} method="POST" class="form">
+                            {% csrf_token %}
+                            <input type="submit" value="Delete" class="form">
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <a href="/shows/new" class="form">Add a New Show</a>
+    </div>
+</body>
+
+</html>

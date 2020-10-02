@@ -1,0 +1,35 @@
+.home_buttons {
+    vertical-align: top;
+    text-align: center;
+}
+
+.home_buttons form {
+    margin: 10px;
+    display: inline;
+}
+
+h1,
+h3 {
+    margin: 20px 0px;
+    text-align: center;
+}
+
+#left_side {
+    display: inline-block;
+}
+
+ul {
+    display: inline-block;
+}
+
+li {
+    list-style: none;
+}
+
+ul form li {
+    width: 100px;
+}
+
+#text_area {
+    height: 60px;
+}

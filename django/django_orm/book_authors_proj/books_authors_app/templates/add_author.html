@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Author</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div id="left_side">
+        <h1>Add an Author</h1>
+        <ul>
+            <li>First Name</li>
+            <li>Last Name</li>
+            <li>Notes</li>
+        </ul>
+        <ul>
+            <form action="" method="POST">
+                <li><input type="text" name="first_name"></li>
+                <li><input type="text" name="last_name"></li>
+                <li><input id="text_area" type="text" name="notes"></li>
+            </form>
+        </ul>
+    </div>
+</body>
+
+</html>

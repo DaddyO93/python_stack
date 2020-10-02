@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books and Authors App</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <h1>Welcome to your Library</h1>
+    <div class="wrapper">
+        <div class="section">
+            <h3>Books</h3>
+            <form action="" method="POST">
+                {%csrf_token%}
+                <button type="submit">Add an Author</button>
+            </form>
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Publisher</th>
+                    <th>View</th>
+                </tr>
+                <tr>
+                    {% for book in all_books %}
+                    <td>{{book.title}}</td>
+                    <td>{{book.authors}}</td>
+                    <td>{{book.publisher}}</td>
+                    <td>
+                        <a href="/add.book/{{book.id}}"></a>
+                    </td>
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
+
+        <form action="" method="POST">
+            {%csrf_token%}
+            <button type="submit">Add a Book</button>
+        </form>
+    </div>
+</body>
+
+</html>
