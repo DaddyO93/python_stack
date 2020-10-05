@@ -1,0 +1,95 @@
+#wrapper {
+    width: 970px;
+    margin: 30px;
+}
+
+#upper {
+    width: 300px;
+}
+
+h2,
+h4 {
+    margin: 0px;
+}
+
+.label_align_top {
+    vertical-align: top;
+}
+
+.text_area {
+    height: 40px;
+}
+
+#submit_button {
+    text-align: right;
+}
+
+#submit_button button {
+    background-color: green;
+    color: aliceblue;
+}
+
+#lower table {
+    border-collapse: collapse;
+    border: 2px solid black;
+}
+
+#lower table th {
+    text-align: left;
+}
+
+#lower th:nth-child(even),
+#lower td:nth-child(even) {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+#lower #two_columns {
+    text-align: center;
+}
+
+#header_background {
+    background-color: rgb(129, 129, 129);
+}
+
+.table_row:nth-child(odd) {
+    background-color: rgb(221, 219, 219);
+}
+
+.table_row:nth-child(even) {
+    background-color: rgb(174, 175, 175);
+}
+
+#no_styling {
+    background-color: transparent;
+    border: none;
+}
+
+#no_styling p {
+    margin: 1px;
+}
+
+.inline_block {
+    display: inline-block;
+}
+
+#red_background {
+    background-color: red;
+    color: aliceblue;
+    padding: 0px 20px;
+}
+
+#comment {
+    border: 1px solid black;
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+#comment p:last-child {
+    margin-top: 20px;
+}
+
+#comment_form {
+    display: block;
+    margin-bottom: 10px;
+}
