@@ -28,6 +28,8 @@ def register (request):
         return redirect ('/')
 
 def login (request):
+    if request.method == 'GET':
+        return redirect ('/')
     if request.method == 'POST':
         user = User.objects.filter(email=request.POST['email'])
         if len(user)>0:
@@ -36,16 +38,18 @@ def login (request):
                 request.session['user_id'] = logged_user.id
                 return redirect ('/success')
             else:
+                messages.error(request, "Your Email or Password are incorrect!")
                 return redirect ('/')
-    else:
-        return redirect ('/')
+        else:
+            messages.error(request, "You must register first!")
+            return redirect ('/')
     
 def success_screen (request):
     if 'user_id' not in request.session:
-        messages.error(request, "You must be registered or logged in!")
+        messages.error(request, "You need to register or log in!")
         return redirect ('/')
     user = User.objects.get(id=request.session['user_id'])
     context = {
         'user':user
     }
-    return render (request, 'success.html', context)
+    return redirect ('wall/home', context)

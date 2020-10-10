@@ -1,0 +1,23 @@
+#left_side,
+#right_side {
+    display: inline-block;
+    margin: 20px 5%;
+    vertical-align: top;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2,
+a {
+    display: inline;
+}
+
+a {
+    margin-left: 60px;
+}
+
+#wrapper {
+    margin: 40px;
+}

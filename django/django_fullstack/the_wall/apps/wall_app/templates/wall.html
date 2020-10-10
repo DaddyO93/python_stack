@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wall</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+    {{comment.all}}
+    <div id="wrapper">
+        <a href="/log_out">Log Out</a>
+        <h4>Post a Message</h4>
+        <form action="/wall/home/submit_message" method="POST">
+            {% csrf_token %}
+            <input type="text" name="message" id="message">
+            <button type="submit">Submit</button>
+        </form>
+        {% for message in all_messages %}
+        <ul>
+            <li class="message_author">{{message.commenter.first_name}} {{message.commenter.last_name}} - {{message.created_at}}</li>
+            <li class="on_click" class="comment">{{message.message}}</li>
+            {% for comment in message.related_comments.all %}
+            <ul>
+                <li class="comment_author">{{comment.user.first_name}} {{comment.user.last_name}} - {{comment.created_at}}</li>
+                <li class="on_click" class="comment">{{comment.comment}}</li>
+            </ul>
+            {% endfor %}
+            <h5>Post a Comment</h5>
+            <form action="/wall/home/submit_comment/{{message.id}}" method="POST">
+                {% csrf_token %}
+                <input type="text" name="comment" id="comment">
+                <button type="submit">Submit</button>
+            </form>
+        </ul>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

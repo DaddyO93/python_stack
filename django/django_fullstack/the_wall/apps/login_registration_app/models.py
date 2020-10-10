@@ -23,8 +23,8 @@ class UserManager (models.Manager):
         if not EMAIL_REGEX.match(dataPost['email']):
             errors['email'] = "You must use a valid email address"
         # Validate unique email address
-        user_check = User.objects.filter(email=dataPost['email'])
-        if user_check:
+        user = User.objects.filter(email=dataPost['email'])
+        if len(user)>0:
             errors['email'] = "That email address is already taken"
         # Confirm password and pw_confirm match
         if dataPost['password'] != dataPost['pw_confirm']:
