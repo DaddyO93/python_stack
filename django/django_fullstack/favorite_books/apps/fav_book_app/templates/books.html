@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/materialize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <a href="/log_out" class="log_out">Log Out</a>
+        <h1>Welcome, <a href="/books/home/user_books">{{user.first_name}}</a>!</h1>
+        <p class="line"></p>
+        <div class="side">
+            <h2>Add a Favorite Book</h2>
+            <table>
+                <form action="/books/home/add_book" method="POST">
+                    {% csrf_token %}
+                    <tr>
+                        <td>Title</td>
+                        <td><input type="text" name="title" id="title"></td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td><input type="text" name="desc" id="desc"></td>
+                    </tr>
+                    <button type="submit">Add</button>
+                </form>
+            </table>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div class="side">
+            <h2>All Books</h2>
+            {% for book in all_books %}
+            <ul>
+                <li><a href="/books/home/{{book.id}}">{{book.title}}</a></li>
+                <li>(added by {{book.uploaded_by.first_name}} {{book.uploaded_by.last_name}})</li>
+                {% if book in user.liked_books.all %}
+                <li>
+                    <p class="italics">this is one of your favorites</p>
+                </li>
+                {% else %}
+                <li>
+                    <a href="/books/home/add_to_favorites/{{book.id}}">Add to favorites</a>
+                </li>
+            </ul>
+            {% endif %} {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>

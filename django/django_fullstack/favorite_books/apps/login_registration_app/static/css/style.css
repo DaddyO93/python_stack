@@ -1,0 +1,35 @@
+#wrapper {
+    width: 970px;
+    margin: 20px auto;
+}
+
+a,
+h1 {
+    display: inline-block;
+}
+
+.side {
+    display: inline-block;
+    vertical-align: top;
+    width: 390px;
+    margin: auto 20px;
+}
+
+.line {
+    width: 100%;
+    border: 1px solid black;
+}
+
+li {
+    list-style: none;
+}
+
+.danger {
+    background-color: red;
+    color: aliceblue;
+}
+
+.log_out {
+    display: block;
+    text-align: right;
+}

@@ -52,4 +52,4 @@ def success_screen (request):
     context = {
         'user':user
     }
-    return redirect ('app_name/home', context)
+    return redirect ('books/home', context)

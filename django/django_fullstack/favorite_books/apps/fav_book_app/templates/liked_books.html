@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div id="wrapper">
+        <a href="/log_out" class="log_out">Log Out</a>
+        <h1>Welcome, <a href="/books/home/user_books">{{user.first_name}}</a>!</h1>
+        <p class="line"></p>
+        <div class="side">
+            <h2>Liked Books</h2>
+            <ul>
+                {% for book in liked_books %}
+                <li><a href="/books/home/{{book.id}}">{{book.title}}</a></li>
+                <ul>
+                    <li>Last Updated: {{book.updated_at}}</li>
+                </ul>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="side">
+            <h2>Uploaded Books</h2>
+            <ul>
+                {% for book in uploaded_books %}
+                <li><a href="/books/home/{{book.id}}">{{book.title}}</a></li>
+                <ul>
+                    <li>Uploaded On: {{book.created_at}}</li>
+                </ul>
+                {% endfor %}
+            </ul>
+        </div>
+        <a href="/books/home">Go Home</a>
+    </div>
+</body>
+
+</html>

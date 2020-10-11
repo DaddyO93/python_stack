@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Info</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div id="wrapper">
+        <a href="/log_out" class="log_out">Log Out</a>
+        <h1>Welcome, <a href="/books/home/user_books">{{user.first_name}}</a>!</h1>
+        <p class="line"></p>
+        <div class="side">
+            {% if user == book.uploaded_by %}
+            <form action="/books/home/update_book/{{book.id}}" method="POST">
+                {% csrf_token %}
+                <input type="text" name="title" id="title" value="{{book.title}}">
+                <p>Added by: {{book.uploaded_by.first_name}} {{book.uploaded_by.last_name}}</p>
+                <p>Added on: {{book.created_at}}</p>
+                <p>updated on: {{book.updated_at}}</p>
+                <p>Description: <input type="text" name="desc" id="desc" value="{{book.desc}}"></p>
+                <button type="submit">Update</button>
+            </form>
+            <form action="/books/home/delete_book/{{book.id}}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="danger">Delete</button>
+            </form>
+            {% if messages %} {% for message in messages %}
+            <ul class="messages">
+                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            </ul>
+            {% endfor %} {% endif %} {% else %}
+            <h3>{{book.title}}</h3>
+            <p>Added by: {{book.uploaded_by.first_name}} {{book.uploaded_by.last_name}}</p>
+            <p>Added on: {{book.created_at}}</p>
+            <p>updated on: {{book.updated_at}}</p>
+            <p>Description: {{book.desc}}</p>
+            {% endif %}
+        </div>
+        <div class="side">
+            <h3>Users Who Like This Book</h3>
+            {% for user_fav in book.users_who_like.all %}
+            <ul>
+                <li>{{user_fav.first_name}} {{user_fav.last_name}} {% if user in book.users_who_like.all and user_fav.id == user.id %}
+                    <a href="/books/home/un_favorite/{{book.id}}">Un-Favorite</a></li>
+                {% endif %}
+            </ul>
+            {% endfor %} {% if book not in user.liked_books.all %}
+            <form action="/books/home/add_to_favorites/{{book.id}}" method="POST">
+                {% csrf_token %}
+                <button type="submit">Add to Favorites</button>
+            </form>
+            {% endif %}
+        </div>
+        <a href="/books/home">Go Home</a>
+    </div>
+</body>
+
+</html>
